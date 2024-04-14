@@ -26,3 +26,8 @@ az container exec -g LearningLAB --name hellowork --container-name hellowork --e
 
 #  # To Delete container
 az container delete --resource-group LearningLAB --name mycontainer1
+
+#  # To create container with nginx image
+az container create --resource-group LearningLAB --name mycontainer2 --image nginx --dns-name-label mywebapp1 --ports 80
+
+

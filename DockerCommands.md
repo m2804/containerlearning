@@ -1,8 +1,14 @@
 # Dockerlearning
 
-#     # Docker Commands from Widnows Docker Host
+#     # Docker Commands 
+#     #  To show the docker version information
+        docker --version
+
 #     #  To login to Docker hub
         docker login
+        
+#     #  To log out from Docker hub
+        docker logout
             
 #     #  To Pull image
         docker pull <name of image>
@@ -26,7 +32,7 @@
         docker ps -a
             
 #     #  To Start container
-        docker star <name of container>
+        docker start <name of container>
             
 #     # To Delete the container
         docker stop <name of container>
@@ -40,5 +46,23 @@
             COPY nginx.conf /etc/nginx/nginx.conf
             EXPOSE 80
 #     # To build the image from source code file 
-              Open command prompt
-              >  
+              # Copy and paste the Dockerfile to the location where the source code is kept.
+              # Open command prompt and switch to directory where source code files are kept. 
+              
+              >  docker build -t <your-docker-hub-id>/<image-name>:<tag> .
+              # in the above command there is a dot at the last. This dot copies all the files from the location
+              
+              Replace your docker hub account Id
+              
+              > docker build -t eglitmyk>/myappimage .
+
+#     # To push the local docker image to Docker Hub 
+             # As a best practice, images should be tagged before pushing to the docker hub 
+             > docker tag <your-docker-hub-id>/<image-name> <your-docker-hub-id>/<image-name>:<tag>
+             
+             # To push the local docker image to docker Hub
+             > docker push <your-docker-hub-id>/<image-name>:<tag>
+
+#     # To connect to container or get inside the container and execute commands in container 
+             > docker exec -it container-name /bin/sh
+         
